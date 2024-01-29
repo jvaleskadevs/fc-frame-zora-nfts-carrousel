@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 const maxSupply = 46;
 const randomIndex = Math.floor(Math.random() * maxSupply) + 1;
-const zoraUrl = "https://zora.co/collect/base:0x45ab4ace5836190fed42800b1c11cb6bdb3b4dc5";
+const zoraUrl = "https://opensea.io/assets/base/0x45ab4ace5836190fed42800b1c11cb6bdb3b4dc5";
 const randomImage = zoraUrl + "/" + randomIndex;
 const postUrl = "https://fc-frame-zora-nft-carrousel.app/api/frame";
 
