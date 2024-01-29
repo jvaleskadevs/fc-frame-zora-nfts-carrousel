@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getNftMetadata } from '../../lib/getNftMetadata';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
-  const postUrl = "https://fc-frame-zora-nfts-carrousel.app/api/frame"; 
+  const postUrl = "https://fc-frame-zora-nfts-carrousel.vercel.app/api/frame"; 
   const lfghoContractAddress = "0x45ab4ace5836190fed42800b1c11cb6bdb3b4dc5";
 
   const maxSupply = 76;
