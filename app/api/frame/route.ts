@@ -2,9 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
-  const postUrl = "https://fc-frame-zora-nft-carrousel.app/api/frame"; 
-  const lfghoContractAddress = "0x45ab4ace5836190fed42800b1c11cb6bdb3b4dc5";
-  
 /*  
   // get the total supply
   const options = {method: 'GET', headers: {accept: 'application/json'}};
@@ -15,8 +12,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const lfghoMetadata = await response.json();
 */
   
+  const postUrl = "https://fc-frame-zora-nft-carrousel.app/api/frame"; 
+  const lfghoContractAddress = "0x45ab4ace5836190fed42800b1c11cb6bdb3b4dc5";
+
   // randomize the tokenID
-  const maxSupply = 76; // lfghoMetadata?.totalSupply;
+  const maxSupply = 76;
   const randomTokenId = Math.floor(Math.random() * maxSupply) + 1;
 
   // fetch nft metadata
@@ -25,10 +25,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const endpoint = baseUrl + `nft/v3/${process.env.ALCHEMY_ID || 'docs-demo'}/getNFTMetadata`;
   const params = `?contractAddress=${lfghoContractAddress}&tokenId=${randomTokenId}&refreshCache=false`;
   const response = await fetch(endpoint+params, options);
-  const metadata = await response.json();
+  const nftMetadata = await response.json();
 
   // build the image url
-  const nftImageUrl = metadata?.image?.cachedUrl;
+  const nftImageUrl = nftMetadata?.image?.cachedUrl;
 
   return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
