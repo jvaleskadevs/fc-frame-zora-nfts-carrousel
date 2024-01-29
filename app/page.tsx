@@ -15,10 +15,10 @@ const baseUrl = 'https://base-mainnet.g.alchemy.com/';
 const endpoint = baseUrl + `nft/v3/${process.env.ALCHEMY_ID || 'docs-demo'}/getNFTMetadata`;
 const params = `?contractAddress=${lfghoContractAddress}&tokenId=${randomTokenId}&refreshCache=false`;
 const response = await fetch(endpoint+params, options);
-const metadata = await response.json();
+const nftMetadata = await response.json();
 
 // build the image url
-const nftImageUrl = metadata?.image?.cachedUrl;
+const nftImageUrl = nftMetadata?.image?.cachedUrl;
 
 
 const frameMetadata = getFrameMetadata({
